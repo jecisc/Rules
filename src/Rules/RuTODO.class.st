@@ -13,5 +13,7 @@ RuTODO >> todo [
 - Test hash
 - Improve equals tests
 - Mutation testing
-- Coverage >80%'
+- Coverage >80%
+- README
+- Documentation'
 ]

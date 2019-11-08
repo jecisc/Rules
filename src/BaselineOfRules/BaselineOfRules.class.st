@@ -20,16 +20,22 @@ BaselineOfRules >> baseline: spec [
 		do: [
 			"Dependencies"
 			self mocketry: spec.
-			
+
 			"Packages"
 			spec
 				package: 'Rules';
 				package: 'Rules-Tests' with: [ spec requires: #('Rules' 'Mocketry') ].
-			
+
 			"Groups"
 			spec
 				group: 'Core' with: #('Rules');
-				group: 'Tests' with: #('Rules-Tests') ]
+				group: 'Tests' with: #('Rules-Tests') ].
+
+	spec
+		for: #'pharo6.x'
+		do: [ spec
+				package: 'Rules-Pharo6';
+				package: 'Rules' with: [ spec requires: #('Rules-Pharo6') ] ]
 ]
 
 { #category : #dependencies }
