@@ -31,6 +31,7 @@ Class {
 
 { #category : #testing }
 RuAbstractRule class >> isAbstract [
+	<ignoreForCoverage>
 	^ true
 ]
 

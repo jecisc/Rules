@@ -3,7 +3,7 @@ A RuRuleTest is a test class for testing the behavior of RuRule
 "
 Class {
 	#name : #RuRuleTest,
-	#superclass : #RuAbstractRuleTest,
+	#superclass : #RuLeafRuleTest,
 	#category : #'Rules-Tests'
 }
 
