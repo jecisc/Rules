@@ -60,6 +60,16 @@ RuAbstractRuleTest >> testEquals [
 ]
 
 { #category : #tests }
+RuAbstractRuleTest >> testHash [
+	| inst2 |
+	inst2 := self newInstance.
+	self assert: rule hash equals: rule hash.
+	self assert: rule hash equals: inst2 hash.
+	inst2 label: 'something new'.
+	self deny: rule hash equals: inst2 hash
+]
+
+{ #category : #tests }
 RuAbstractRuleTest >> testTotalRemediationTime [
 	self assert: rule totalRemediationTime equals: self totalRemediationTime
 ]

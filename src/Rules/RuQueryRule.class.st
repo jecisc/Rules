@@ -43,7 +43,7 @@ RuQueryRule >> explanation [
 
 { #category : #comparing }
 RuQueryRule >> hash [
-	^ super hash bitXor: inputQuery
+	^ super hash bitXor: inputQuery hash
 ]
 
 { #category : #accessing }

@@ -54,7 +54,7 @@ RuCompositeRuleTest >> testAddRuleSetParent [
 
 { #category : #tests }
 RuCompositeRuleTest >> testCompositeRuleWithoutChildren [
-	rule children removeAll.
+	rule children: #().
 	self shouldnt: [ rule totalRemediationTime ] raise: Error.
 	self assert: rule totalRemediationTime equals: Duration zero
 ]
