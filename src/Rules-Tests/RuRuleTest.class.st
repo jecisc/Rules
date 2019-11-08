@@ -29,5 +29,5 @@ RuRuleTest >> newInstance [
 
 { #category : #helpers }
 RuRuleTest >> totalRemediationTime [
-	^ Duration minutes: 30
+	^ 30 minutes
 ]

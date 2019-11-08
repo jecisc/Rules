@@ -61,5 +61,5 @@ RuCompositeRuleTest >> testCompositeRuleWithoutChildren [
 
 { #category : #helpers }
 RuCompositeRuleTest >> totalRemediationTime [
-	^ Duration minutes: 65
+	^ 65 minutes
 ]

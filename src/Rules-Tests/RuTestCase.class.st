@@ -48,25 +48,30 @@ RuTestCase >> addSomeRulesTo: aRule [
 
 { #category : #helpers }
 RuTestCase >> mockModel [
-	| model container1 container2 container3 |
+	| model container1 container2 container3 entity1 |
 	container1 := Mock named: 'Container1'.
+	container1 stub name willReturn: 'Class1'.
 	container1 stub numberOfLinesOfCode willReturn: 24.
 	container1 stub hasDuplicatedCode willReturn: true.
 	container1 stub containsDeadEntities willReturn: true.
 	container1 stub averageCyclomaticComplexity willReturn: 2. 
 	container2 := Mock named: 'Container2'.
+	container2 stub name willReturn: 'Class2'.
 	container2 stub numberOfLinesOfCode willReturn: 11.
 	container2 stub hasDuplicatedCode willReturn: false.
 	container2 stub containsDeadEntities willReturn: false.
 	container2 stub averageCyclomaticComplexity willReturn: 4.
 	container3 := Mock named: 'Container3'.
+	container3 stub name willReturn: 'Class3'.
 	container3 stub numberOfLinesOfCode willReturn: 7.
 	container3 stub hasDuplicatedCode willReturn: true.
 	container3 stub containsDeadEntities willReturn: false.
 	container3 stub averageCyclomaticComplexity willReturn: 1.
+	entity1 := Mock named: 'Entity1'.
+	entity1 stub name willReturn: 'Method1'.
 	model := Mock named: 'Model'.
 	model stub allContainers willReturn: {container1 . container2 . container3}.
-
+	model stub entities willReturn: { container1 . container2. container3. entity1 }.
 	^ model
 ]
 

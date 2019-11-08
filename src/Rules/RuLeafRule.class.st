@@ -30,7 +30,7 @@ Class {
 	#superclass : #RuAbstractRule,
 	#instVars : [
 		'resultCache',
-		'remediationTime'
+		'estimatedRemediationTime'
 	],
 	#category : #'Rules-Model'
 }
@@ -80,12 +80,12 @@ RuLeafRule >> remediationDuration [
 
 { #category : #accessing }
 RuLeafRule >> remediationTime [
-	^ remediationTime
+	^ estimatedRemediationTime
 ]
 
 { #category : #accessing }
 RuLeafRule >> remediationTime: anObject [
-	remediationTime := anObject
+	estimatedRemediationTime := anObject
 ]
 
 { #category : #accessing }
