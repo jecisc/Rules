@@ -26,7 +26,7 @@ Class {
 		'explanation',
 		'parent'
 	],
-	#category : #Rules
+	#category : #'Rules-Model'
 }
 
 { #category : #testing }

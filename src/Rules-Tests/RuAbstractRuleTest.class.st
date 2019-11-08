@@ -26,6 +26,21 @@ RuAbstractRuleTest >> actualClass [
 ]
 
 { #category : #helpers }
+RuAbstractRuleTest >> mockModel [
+	| model container1 container2 container3 |
+	container1 := Mock named: 'Container1'.
+	container1 stub numberOfLinesOfCode willReturn: 24.
+	container2 := Mock named: 'Container2'.
+	container2 stub numberOfLinesOfCode willReturn: 11.
+	container3 := Mock named: 'Container3'.
+	container3 stub numberOfLinesOfCode willReturn: 7.
+	model := Mock named: 'Model'.
+	model stub allContainers willReturn: {container1 . container2 . container3}.
+
+	^ model
+]
+
+{ #category : #helpers }
 RuAbstractRuleTest >> mutate: aRule [
 	self subclassResponsibility
 ]
@@ -33,9 +48,11 @@ RuAbstractRuleTest >> mutate: aRule [
 { #category : #helpers }
 RuAbstractRuleTest >> newInstance [
 	| root |
-	root := Mock named: 'Root rule'.
-	self flag: #todo. "This should return a mock model instead of an empty array"
-	root stub model willReturn: #().
+	root :=" RuRule new
+		label: 'Root rule';
+		model: self mockModel;
+		yourself." Mock named: 'Root rule'.
+		root stub model willReturn: self mockModel.
 	^ self actualClass new
 		label: 'test';
 		explanation: 'This is a test';
@@ -52,8 +69,6 @@ RuAbstractRuleTest >> setUp [
 { #category : #tests }
 RuAbstractRuleTest >> testCacheIsResetWhenRulesChange [
 	| time |
-	self skip.
-	self flag: #todo. "unskip"
 	time := rule totalRemediationTime.
 	self mutate: rule.
 	self deny: time equals: rule totalRemediationTime
@@ -71,8 +86,6 @@ RuAbstractRuleTest >> testEquals [
 
 { #category : #tests }
 RuAbstractRuleTest >> testTotalRemediationTime [
-	self skip.
-	self flag: #todo. "unskip"
 	self assert: rule totalRemediationTime equals: self totalRemediationTime
 ]
 
