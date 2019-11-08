@@ -112,3 +112,8 @@ RuAbstractRule >> resetCache [
 RuAbstractRule >> totalRemediationTime [
 	^ self subclassResponsibility
 ]
+
+{ #category : #accessing }
+RuAbstractRule >> workingHours [
+	^ self parent workingHours
+]

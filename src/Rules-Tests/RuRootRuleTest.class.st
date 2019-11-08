@@ -18,3 +18,9 @@ RuRootRuleTest >> newInstance [
 		model: self mockModel;
 		yourself
 ]
+
+{ #category : #running }
+RuRootRuleTest >> setUp [
+	super setUp.
+	rootRule := rule
+]

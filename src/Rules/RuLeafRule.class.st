@@ -126,8 +126,3 @@ RuLeafRule >> resultCache: anObject [
 RuLeafRule >> totalRemediationTime [
 	^ self remediationDuration * self result size
 ]
-
-{ #category : #accessing }
-RuLeafRule >> workingHours [
-	^ 8
-]

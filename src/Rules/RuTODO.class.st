@@ -6,10 +6,7 @@ Class {
 
 { #category : #TODO }
 RuTODO >> todo [
-	^ '
-- Make initial remediation time configurable?
-- Make working hours configurable
-- Test hash
+	^ '- Test hash
 - Improve equals tests
 - Mutation testing
 - Coverage >80%

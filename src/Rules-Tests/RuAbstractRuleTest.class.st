@@ -5,6 +5,7 @@ Class {
 	#name : #RuAbstractRuleTest,
 	#superclass : #RuTestCase,
 	#instVars : [
+		'rootRule',
 		'rule'
 	],
 	#category : #'Rules-Tests'
@@ -30,7 +31,7 @@ RuAbstractRuleTest >> newInstance [
 	^ self actualClass new
 		label: 'test';
 		explanation: 'This is a test';
-		parent: self rootRule;
+		parent: (rootRule := self rootRule);
 		yourself
 ]
 
@@ -61,6 +62,13 @@ RuAbstractRuleTest >> testEquals [
 { #category : #tests }
 RuAbstractRuleTest >> testTotalRemediationTime [
 	self assert: rule totalRemediationTime equals: self totalRemediationTime
+]
+
+{ #category : #tests }
+RuAbstractRuleTest >> testWorkingHours [
+	self assert: rule workingHours equals: 8.
+	rootRule workingHours: 7.
+	self assert: rule workingHours equals: 7
 ]
 
 { #category : #helpers }

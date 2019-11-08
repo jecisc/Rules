@@ -14,7 +14,7 @@ RuTestCase class >> shouldInheritSelectors [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #helpers }
 RuTestCase >> addSomeRulesTo: aRule [
 	"3 violations"
 	self
