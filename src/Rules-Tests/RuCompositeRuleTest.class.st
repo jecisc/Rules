@@ -59,6 +59,22 @@ RuCompositeRuleTest >> testCompositeRuleWithoutChildren [
 	self assert: rule totalRemediationTime equals: Duration zero
 ]
 
+{ #category : #tests }
+RuCompositeRuleTest >> testRemoveRule [
+	| rules newRule |
+	rules := rule children copy.
+	newRule := RuRule new
+		label: 'test';
+		explanation: 'test 2';
+		ruleBlock: [ true ];
+		remediationTime: 10;
+		yourself.
+	rule addRule: newRule.
+	self assert: rule children size equals: rules size + 1.
+	rule removeRule: newRule.
+	self assert: rule children size equals: rules size
+]
+
 { #category : #helpers }
 RuCompositeRuleTest >> totalRemediationTime [
 	^ 65 minutes
