@@ -52,6 +52,11 @@ RuAbstractRule >> = anObject [
 	^ explanation = anObject explanation and: [ label = anObject label ]
 ]
 
+{ #category : #memento }
+RuAbstractRule >> createMemento [
+	^ self copy
+]
+
 { #category : #accessing }
 RuAbstractRule >> explanation [
 	^ explanation
@@ -106,6 +111,11 @@ RuAbstractRule >> printOn: aStream [
 { #category : #initialization }
 RuAbstractRule >> resetCache [
 	self subclassResponsibility
+]
+
+{ #category : #memento }
+RuAbstractRule >> restoreFromMemento: aMemento [
+	self label: aMemento label
 ]
 
 { #category : #accessing }

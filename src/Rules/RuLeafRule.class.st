@@ -57,11 +57,6 @@ RuLeafRule >> computeResult [
 	^ self subclassResponsibility
 ]
 
-{ #category : #memento }
-RuLeafRule >> createMemento [
-	^ self copy
-]
-
 { #category : #comparing }
 RuLeafRule >> hash [
 	^ super hash bitXor: self remediationTime hash
@@ -100,7 +95,7 @@ RuLeafRule >> resetCache [
 
 { #category : #memento }
 RuLeafRule >> restoreFromMemento: aMemento [
-	self label: aMemento label.
+	super restoreFromMemento: aMemento.
 	self remediationTime: aMemento remediationTime
 ]
 

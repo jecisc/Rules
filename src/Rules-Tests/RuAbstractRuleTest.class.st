@@ -28,10 +28,9 @@ RuAbstractRuleTest >> mutate: aRule [
 
 { #category : #helpers }
 RuAbstractRuleTest >> newInstance [
-	^ self actualClass new
+	^ (self actualClass parent: (rootRule := self rootRule))
 		label: 'test';
 		explanation: 'This is a test';
-		parent: (rootRule := self rootRule);
 		yourself
 ]
 
@@ -75,6 +74,22 @@ RuAbstractRuleTest >> testHash [
 	self assert: rule hash equals: inst2 hash.
 	inst2 label: 'something new'.
 	self deny: rule hash equals: inst2 hash
+]
+
+{ #category : #tests }
+RuAbstractRuleTest >> testPrintOnDoesNotCrashOnNilLabel [
+	rule label: nil.
+	self shouldnt: [ rule printString ] raise: Error
+]
+
+{ #category : #tests }
+RuAbstractRuleTest >> testRestoreFromMemento [
+	| memento |
+	memento := rule createMemento.
+	rule label: 'toto'.
+	self assert: rule label equals: 'toto'.
+	rule restoreFromMemento: memento.
+	self deny: rule label equals: 'toto'
 ]
 
 { #category : #tests }
