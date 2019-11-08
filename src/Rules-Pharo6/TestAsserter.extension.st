@@ -9,3 +9,11 @@ TestAsserter >> deny: actual equals: expected [
 		deny: expected = actual
 		description: [self unexpectedEqualityStringBetween: actual and: expected]
 ]
+
+{ #category : #'*Rules-Pharo6' }
+TestAsserter >> deny: actual identicalTo: expected [
+	"Verify whether the actual and the expected are NOT the same object (have the same object pointer so #== returns false)."
+	^ self
+		deny: expected == actual
+		description: [self unexpectedIdentityEqualityStringBetween: actual and: expected]
+]

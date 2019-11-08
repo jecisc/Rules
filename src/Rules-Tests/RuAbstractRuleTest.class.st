@@ -50,6 +50,14 @@ RuAbstractRuleTest >> testCacheIsResetWhenRulesChange [
 ]
 
 { #category : #tests }
+RuAbstractRuleTest >> testCopy [
+	| copy |
+	copy := rule copy.
+	self assert: rule equals: copy.
+	self deny: rule identicalTo: copy
+]
+
+{ #category : #tests }
 RuAbstractRuleTest >> testEquals [
 	| inst2 |
 	inst2 := self newInstance.
