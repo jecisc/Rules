@@ -30,17 +30,26 @@ RuAbstractRuleTest >> mockModel [
 	| model container1 container2 container3 |
 	container1 := Mock named: 'Container1'.
 	container1 stub numberOfLinesOfCode willReturn: 24.
+	container1 stub hasDuplicatedCode willReturn: true.
+	container1 stub containsDeadEntities willReturn: true.
+	container1 stub averageCyclomaticComplexity willReturn: 2. 
 	container2 := Mock named: 'Container2'.
 	container2 stub numberOfLinesOfCode willReturn: 11.
+	container2 stub hasDuplicatedCode willReturn: false.
+	container2 stub containsDeadEntities willReturn: false.
+	container2 stub averageCyclomaticComplexity willReturn: 4.
 	container3 := Mock named: 'Container3'.
 	container3 stub numberOfLinesOfCode willReturn: 7.
+	container3 stub hasDuplicatedCode willReturn: true.
+	container3 stub containsDeadEntities willReturn: false.
+	container3 stub averageCyclomaticComplexity willReturn: 1.
 	model := Mock named: 'Model'.
 	model stub allContainers willReturn: {container1 . container2 . container3}.
 
 	^ model
 ]
 
-{ #category : #helpers }
+{ #category : #accessing }
 RuAbstractRuleTest >> mutate: aRule [
 	self subclassResponsibility
 ]
