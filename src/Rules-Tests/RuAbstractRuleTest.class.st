@@ -57,11 +57,10 @@ RuAbstractRuleTest >> mutate: aRule [
 { #category : #helpers }
 RuAbstractRuleTest >> newInstance [
 	| root |
-	root :=" RuRule new
+	root := RuRootRule new
 		label: 'Root rule';
 		model: self mockModel;
-		yourself." Mock named: 'Root rule'.
-		root stub model willReturn: self mockModel.
+		yourself.
 	^ self actualClass new
 		label: 'test';
 		explanation: 'This is a test';
