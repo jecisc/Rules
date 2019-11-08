@@ -3,7 +3,7 @@ A RuAbstractRuleTest is a test class for testing the behavior of RuAbstractRule
 "
 Class {
 	#name : #RuAbstractRuleTest,
-	#superclass : #TestCase,
+	#superclass : #RuTestCase,
 	#instVars : [
 		'rule'
 	],
@@ -15,38 +15,9 @@ RuAbstractRuleTest class >> isAbstract [
 	^ self = RuAbstractRuleTest
 ]
 
-{ #category : #testing }
-RuAbstractRuleTest class >> shouldInheritSelectors [
-	^ true
-]
-
 { #category : #helpers }
 RuAbstractRuleTest >> actualClass [
 	^ self subclassResponsibility
-]
-
-{ #category : #helpers }
-RuAbstractRuleTest >> mockModel [
-	| model container1 container2 container3 |
-	container1 := Mock named: 'Container1'.
-	container1 stub numberOfLinesOfCode willReturn: 24.
-	container1 stub hasDuplicatedCode willReturn: true.
-	container1 stub containsDeadEntities willReturn: true.
-	container1 stub averageCyclomaticComplexity willReturn: 2. 
-	container2 := Mock named: 'Container2'.
-	container2 stub numberOfLinesOfCode willReturn: 11.
-	container2 stub hasDuplicatedCode willReturn: false.
-	container2 stub containsDeadEntities willReturn: false.
-	container2 stub averageCyclomaticComplexity willReturn: 4.
-	container3 := Mock named: 'Container3'.
-	container3 stub numberOfLinesOfCode willReturn: 7.
-	container3 stub hasDuplicatedCode willReturn: true.
-	container3 stub containsDeadEntities willReturn: false.
-	container3 stub averageCyclomaticComplexity willReturn: 1.
-	model := Mock named: 'Model'.
-	model stub allContainers willReturn: {container1 . container2 . container3}.
-
-	^ model
 ]
 
 { #category : #accessing }
@@ -56,15 +27,10 @@ RuAbstractRuleTest >> mutate: aRule [
 
 { #category : #helpers }
 RuAbstractRuleTest >> newInstance [
-	| root |
-	root := RuRootRule new
-		label: 'Root rule';
-		model: self mockModel;
-		yourself.
 	^ self actualClass new
 		label: 'test';
 		explanation: 'This is a test';
-		parent: root;
+		parent: self rootRule;
 		yourself
 ]
 
