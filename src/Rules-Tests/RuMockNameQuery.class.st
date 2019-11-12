@@ -25,7 +25,7 @@ RuMockNameQuery >> = anObject [
 	^ regex = anObject regex
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 RuMockNameQuery >> explanataion [
 	^ 'I am a mock query'
 ]

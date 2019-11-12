@@ -70,7 +70,7 @@ RuLeafRule >> remediationTime [
 
 { #category : #accessing }
 RuLeafRule >> remediationTime: aDuration [
-	estimatedRemediationTime := aDuration asRuleDuration
+	estimatedRemediationTime := aDuration
 ]
 
 { #category : #accessing }

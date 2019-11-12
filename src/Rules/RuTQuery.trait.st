@@ -12,7 +12,7 @@ Trait {
 }
 
 { #category : #accessing }
-RuTQuery >> explanataion [
+RuTQuery >> explanation [
 	^ self explicitRequirement
 ]
 
