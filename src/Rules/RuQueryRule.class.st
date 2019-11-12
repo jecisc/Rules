@@ -24,6 +24,13 @@ Class {
 	#category : #'Rules-Model'
 }
 
+{ #category : #'instance creation' }
+RuQueryRule class >> from: aQuery [
+	^ self new
+		inputQuery: aQuery;
+		yourself
+]
+
 { #category : #comparing }
 RuQueryRule >> = anObject [
 	^ super = anObject and: [ inputQuery = anObject inputQuery ]
