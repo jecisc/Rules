@@ -24,11 +24,12 @@ BaselineOfRules >> baseline: spec [
 			"Packages"
 			spec
 				package: 'Rules';
+				package: 'Rules-Deprecated' with: [ spec requires: #('Rules') ];
 				package: 'Rules-Tests' with: [ spec requires: #('Rules' 'Mocketry') ].
 
 			"Groups"
 			spec
-				group: 'Core' with: #('Rules');
+				group: 'Core' with: #('Rules' 'Rules-Deprecated');
 				group: 'Tests' with: #('Rules-Tests') ].
 
 	spec

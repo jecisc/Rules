@@ -64,12 +64,6 @@ RuLeafRule >> initialize [
 ]
 
 { #category : #accessing }
-RuLeafRule >> remediationDuration [
-	self deprecated: 'Use #remediationTime instead.' transformWith: '`@receiver remediationDuration' -> '`@receiver remediationTime'.
-	^ self remediationTime
-]
-
-{ #category : #accessing }
 RuLeafRule >> remediationTime [
 	^ estimatedRemediationTime
 ]
@@ -93,12 +87,6 @@ RuLeafRule >> resetCache [
 RuLeafRule >> restoreFromMemento: aMemento [
 	super restoreFromMemento: aMemento.
 	self remediationTime: aMemento remediationTime
-]
-
-{ #category : #accessing }
-RuLeafRule >> result [
-	self deprecated: 'Use #violations instead' transformWith: '`@receiver result' -> '`@receiver violations'.
-	^ self violations
 ]
 
 { #category : #accessing }

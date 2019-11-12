@@ -79,15 +79,3 @@ RuRule >> rule: aValuable [
 	rule := aValuable.
 	self resetCache
 ]
-
-{ #category : #accessing }
-RuRule >> ruleBlock [
-	self deprecated: 'Use #rule instead' transformWith: '`@receiver ruleBlock' -> '`@receiver rule'.
-	^ self rule
-]
-
-{ #category : #accessing }
-RuRule >> ruleBlock: anObject [
-	self deprecated: 'Use #rule: instead' transformWith: '`@receiver ruleBlock: `@arg' -> '`@receiver rule: `@arg'.
-	self rule: anObject
-]
