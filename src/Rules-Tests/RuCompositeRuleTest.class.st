@@ -28,12 +28,11 @@ RuCompositeRuleTest >> newInstance [
 RuCompositeRuleTest >> testAddRule [
 	| rules newRule |
 	rules := rule children copy.
-	newRule := RuRule new
-		label: 'test';
-		explanation: 'test 2';
-		ruleBlock: [ true ];
-		remediationTime: 10;
-		yourself.
+	newRule := RuRule
+		ruleBlock: [ true ]
+		label: 'test'
+		explanation: 'test 2'
+		remediationTime: 10.
 	rule addRule: newRule.
 	self assert: rule children size equals: rules size + 1
 ]
@@ -41,12 +40,11 @@ RuCompositeRuleTest >> testAddRule [
 { #category : #tests }
 RuCompositeRuleTest >> testAddRuleSetParent [
 	| newRule |
-	newRule := RuRule new
-		label: 'test';
-		explanation: 'test 2';
-		ruleBlock: [ true ];
-		remediationTime: 10;
-		yourself.
+	newRule := RuRule
+		ruleBlock: [ true ]
+		label: 'test'
+		explanation: 'test 2'
+		remediationTime: 10.
 	self assert: newRule parent isNil.
 	rule addRule: newRule.
 	self assert: newRule parent equals: rule
@@ -63,12 +61,11 @@ RuCompositeRuleTest >> testCompositeRuleWithoutChildren [
 RuCompositeRuleTest >> testRemoveRule [
 	| rules newRule |
 	rules := rule children copy.
-	newRule := RuRule new
-		label: 'test';
-		explanation: 'test 2';
-		ruleBlock: [ true ];
-		remediationTime: 10;
-		yourself.
+	newRule := RuRule
+		ruleBlock: [ true ]
+		label: 'test'
+		explanation: 'test 2'
+		remediationTime: 10.
 	rule addRule: newRule.
 	self assert: rule children size equals: rules size + 1.
 	rule removeRule: newRule.

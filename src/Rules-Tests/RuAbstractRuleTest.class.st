@@ -28,10 +28,8 @@ RuAbstractRuleTest >> mutate: aRule [
 
 { #category : #helpers }
 RuAbstractRuleTest >> newInstance [
-	^ (self actualClass parent: (rootRule := self rootRule))
-		label: 'test';
-		explanation: 'This is a test';
-		yourself
+	rootRule := self rootRule.
+	^ self actualClass labelled: 'test' explanation: 'This is a test' parent: rootRule
 ]
 
 { #category : #running }

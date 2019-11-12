@@ -36,8 +36,10 @@ RuAbstractRule class >> isAbstract [
 ]
 
 { #category : #'instance creation' }
-RuAbstractRule class >> parent: aRule [
+RuAbstractRule class >> labelled: aString explanation: anotherString parent: aRule [
 	^ self new
+		label: aString;
+		explanation: anotherString;
 		parent: aRule;
 		yourself
 ]
