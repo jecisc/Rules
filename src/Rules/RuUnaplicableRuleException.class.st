@@ -1,3 +1,26 @@
+"
+Description
+--------------------
+
+I am an error raised during the computation of a rule if an error occures.
+
+Examples
+--------------------
+
+computeResult
+	^ [ self inputQuery runOn: self model ]
+		on: Error
+		do: [ :e | RuUnaplicableRuleException signalForRule: self model: self model cachedError: e ]
+ 
+Internal Representation and Key Implementation Points.
+--------------------
+
+    Instance Variables
+	cachedError:		<anException>	The exception raised and catched.
+	model:				<anObject>		The model used to run the nule.
+	rule:				<aRule>			The rule which failed.
+
+"
 Class {
 	#name : #RuUnaplicableRuleException,
 	#superclass : #Error,
