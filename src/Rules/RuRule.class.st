@@ -48,20 +48,6 @@ RuRule class >> rule: aValuable label: aString explanation: aMeaningString remed
 		yourself
 ]
 
-{ #category : #'instance creation' }
-RuRule class >> ruleBlock: aBlock label: aString explanation: aMeaningString remediationTime: anInteger [
-	self
-		deprecated: 'Use #rule:label:explanation:remediationTime: instead'
-		transformWith:
-			'`@receiver ruleBlock: `@arg1 label: `@arg2 explanation: `@arg3 remediationTime: `@arg4'
-				-> '`@receiver rule: `@arg1 label: `@arg2 explanation: `@arg3 remediationTime: `@arg4'.
-	^ self
-		rule: aBlock
-		label: aString
-		explanation: aMeaningString
-		remediationTime: anInteger
-]
-
 { #category : #accessing }
 RuRule >> computeViolations [
 	^ [ self rule value: self model ]
