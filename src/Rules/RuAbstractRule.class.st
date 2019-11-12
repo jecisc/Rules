@@ -52,6 +52,11 @@ RuAbstractRule >> = anObject [
 	^ explanation = anObject explanation and: [ label = anObject label ]
 ]
 
+{ #category : #accessing }
+RuAbstractRule >> children [
+	^ {}
+]
+
 { #category : #memento }
 RuAbstractRule >> createMemento [
 	^ self copy

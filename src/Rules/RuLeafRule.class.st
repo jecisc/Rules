@@ -48,11 +48,6 @@ RuLeafRule >> = anObject [
 ]
 
 { #category : #accessing }
-RuLeafRule >> children [
-	^ {}
-]
-
-{ #category : #accessing }
 RuLeafRule >> computeResult [
 	^ self subclassResponsibility
 ]
