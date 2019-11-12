@@ -67,7 +67,7 @@ rulesManager
 
 And then get informations from those rules.
 
-```Smalltak
+```Smalltalk
 rulesManager technicalDebt.  "0:00:02:30"
 
 rulesManager violations. "a Set(11 2)"
