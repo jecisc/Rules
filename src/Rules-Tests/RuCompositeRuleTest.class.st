@@ -72,6 +72,13 @@ RuCompositeRuleTest >> testRemoveRule [
 	self assert: rule children size equals: rules size
 ]
 
+{ #category : #tests }
+RuCompositeRuleTest >> testTechnicalDebt [
+	"For now, this is the same as the total remediation time but in the future we should be able to remove some rules from the technical debt."
+
+	self assert: rule technicalDebt equals: self totalRemediationTime
+]
+
 { #category : #helpers }
 RuCompositeRuleTest >> totalRemediationTime [
 	^ 65 minutes

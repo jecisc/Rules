@@ -71,3 +71,8 @@ RuRulesTest >> testRulesComputationErrorRaiseError [
 				totalRemediationTime ]
 		raise: RuUnaplicableRuleException
 ]
+
+{ #category : #tests }
+RuRulesTest >> testViolations [
+	self assert: rootRule violations size equals: 3
+]
