@@ -32,7 +32,7 @@ RuCompositeRuleTest >> testAddRule [
 		ruleBlock: [ true ]
 		label: 'test'
 		explanation: 'test 2'
-		remediationTime: 10.
+		remediationTime: 10 minutes.
 	rule addRule: newRule.
 	self assert: rule children size equals: rules size + 1
 ]
@@ -44,7 +44,7 @@ RuCompositeRuleTest >> testAddRuleSetParent [
 		ruleBlock: [ true ]
 		label: 'test'
 		explanation: 'test 2'
-		remediationTime: 10.
+		remediationTime: 10 minutes.
 	self assert: newRule parent isNil.
 	rule addRule: newRule.
 	self assert: newRule parent equals: rule
@@ -65,7 +65,7 @@ RuCompositeRuleTest >> testRemoveRule [
 		ruleBlock: [ true ]
 		label: 'test'
 		explanation: 'test 2'
-		remediationTime: 10.
+		remediationTime: 10 minutes.
 	rule addRule: newRule.
 	self assert: rule children size equals: rules size + 1.
 	rule removeRule: newRule.

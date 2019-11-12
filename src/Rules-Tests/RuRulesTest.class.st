@@ -33,7 +33,7 @@ RuRulesTest >> testNumberOfRules [
 RuRulesTest >> testRuleInfo [
 	| rule |
 	rule := self rulesToTest first.
-	self assert: rule totalRemediationTime equals: (Duration minutes: 15).
+	self assert: rule totalRemediationTime equals: 15 minutes.
 	self assert: rule workingHours equals: 8.
 	self assert: rule label equals: 'Long Containers'.
 	self assert: rule explanation equals: 'Containers should not be longer than 6 lines of code'.

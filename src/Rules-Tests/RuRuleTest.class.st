@@ -23,7 +23,7 @@ RuRuleTest >> newInstance [
 		label: 'Long Containers';
 		explanation: 'Containers should not be longer than 10 lines of code';
 		ruleBlock: [ :aModel | aModel allContainers select: [ :each | each numberOfLinesOfCode > 6 ] ];
-		remediationTime: 10;
+		remediationTime: 10 minutes;
 		yourself
 ]
 

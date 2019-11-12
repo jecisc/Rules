@@ -21,28 +21,28 @@ RuTestCase >> addSomeRulesTo: aRule [
 		query: 'Long Containers'
 		meaning: 'Containers should not be longer than 6 lines of code'
 		as: [ :aModel | aModel allContainers select: [ :each | each numberOfLinesOfCode > 6 ] ]
-		remediationTime: 5
+		remediationTime: 5 minutes
 		for: aRule.
 	"0 violations"
 	self
 		query: 'Complexity of Functions'
 		meaning: 'Containers should not be complex: average cyclomatic complexity of more than 10'
 		as: [ :aModel | aModel allContainers select: [ :each | each averageCyclomaticComplexity > 10 ] ]
-		remediationTime: 10
+		remediationTime: 10 minutes
 		for: aRule.
 	"2 violations"
 	self
 		query: 'Duplicate Containers'
 		meaning: 'Containers should not have duplicate code'
 		as: [ :aModel | aModel allContainers select: #hasDuplicatedCode ]
-		remediationTime: 15
+		remediationTime: 15 minutes
 		for: aRule.
 	"1 violations"
 	self
 		query: 'Dead Containers'
 		meaning: 'Containers should not be dead (i.e. not invoked in the system)'
 		as: [ :aModel | aModel allContainers select: #containsDeadEntities ]
-		remediationTime: 20
+		remediationTime: 20 minutes
 		for: aRule
 ]
 

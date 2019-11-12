@@ -60,12 +60,13 @@ RuLeafRule >> hash [
 { #category : #initialization }
 RuLeafRule >> initialize [
 	super initialize.
-	self remediationTime: 30
+	self remediationTime: 30 minutes
 ]
 
 { #category : #accessing }
 RuLeafRule >> remediationDuration [
-	^ Duration minutes: self remediationTime
+	self deprecated: 'Use #remediationTime instead.' transformWith: '`@receiver remediationDuration' -> '`@receiver remediationTime'.
+	^ self remediationTime
 ]
 
 { #category : #accessing }
@@ -74,13 +75,13 @@ RuLeafRule >> remediationTime [
 ]
 
 { #category : #accessing }
-RuLeafRule >> remediationTime: anObject [
-	estimatedRemediationTime := anObject
+RuLeafRule >> remediationTime: aDuration [
+	estimatedRemediationTime := aDuration asRuleDuration
 ]
 
 { #category : #accessing }
 RuLeafRule >> remediationTimeInDays [
-	^ self remediationTime / self workingHours / 60
+	^ self remediationTime minutes / self workingHours / 60
 ]
 
 { #category : #initialization }
@@ -114,5 +115,5 @@ RuLeafRule >> resultCache: anObject [
 
 { #category : #accessing }
 RuLeafRule >> totalRemediationTime [
-	^ self remediationDuration * self result size
+	^ self remediationTime * self result size
 ]
