@@ -136,6 +136,13 @@ RuAbstractRule >> totalRemediationTime [
 ]
 
 { #category : #accessing }
+RuAbstractRule >> violations [
+	"Return all the violations to rules."
+
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 RuAbstractRule >> workingHours [
 	^ self parent workingHours
 ]

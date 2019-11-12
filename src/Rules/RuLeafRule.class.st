@@ -8,7 +8,7 @@ I use a caching system to remember the time I need to correct those problem but 
 
 Public API and Key Messages
 --------------------
-- #remediationDuration 		Return a Duration corresponding to the time to correct one entities breaking the rule.
+- #remediationTime 		Return a Duration corresponding to the time to correct one entities breaking the rule.
 - #totalRemediationTime 		Return a Duration corresponding to the time to correct all the entities breaking the rule.
 		
 Example
@@ -20,8 +20,8 @@ Internal Representation and Key Implementation Points.
 ------------------
 
     Instance Variables
-	remediationTime:		<anInteger> 				The number of minutes to correct one infraction.
-	resultCache:				<anIntegerOrNil>		A cache to save all the entities breaking a rule.
+	remediationTime:		<aDuration> 				The duration to correct one infraction.
+	violationsCache:		<anIntegerOrNil>		A cache to save all the entities breaking a rule.
 
 
 "
@@ -29,8 +29,8 @@ Class {
 	#name : #RuLeafRule,
 	#superclass : #RuAbstractRule,
 	#instVars : [
-		'resultCache',
-		'estimatedRemediationTime'
+		'estimatedRemediationTime',
+		'violationsCache'
 	],
 	#category : #'Rules-Model'
 }
@@ -48,7 +48,7 @@ RuLeafRule >> = anObject [
 ]
 
 { #category : #accessing }
-RuLeafRule >> computeResult [
+RuLeafRule >> computeViolations [
 	^ self subclassResponsibility
 ]
 
@@ -81,12 +81,12 @@ RuLeafRule >> remediationTime: aDuration [
 
 { #category : #accessing }
 RuLeafRule >> remediationTimeInDays [
-	^ self remediationTime minutes / self workingHours / 60
+	^ self remediationTime asMinutes / self workingHours / 60
 ]
 
 { #category : #initialization }
 RuLeafRule >> resetCache [
-	self resultCache: nil
+	self violationsCache: nil
 ]
 
 { #category : #memento }
@@ -97,23 +97,29 @@ RuLeafRule >> restoreFromMemento: aMemento [
 
 { #category : #accessing }
 RuLeafRule >> result [
-	^ self resultCache
-		ifNil: [ 
-			self resultCache: self computeResult.
-			self resultCache ]
-]
-
-{ #category : #accessing }
-RuLeafRule >> resultCache [
-	^ resultCache
-]
-
-{ #category : #accessing }
-RuLeafRule >> resultCache: anObject [
-	resultCache := anObject
+	self deprecated: 'Use #violations instead' transformWith: '`@receiver result' -> '`@receiver violations'.
+	^ self violations
 ]
 
 { #category : #accessing }
 RuLeafRule >> totalRemediationTime [
-	^ self remediationTime * self result size
+	^ self remediationTime * self violations size
+]
+
+{ #category : #accessing }
+RuLeafRule >> violations [
+	^ self violationsCache
+		ifNil: [ 
+			self violationsCache: self computeViolations.
+			self violationsCache ]
+]
+
+{ #category : #accessing }
+RuLeafRule >> violationsCache [
+	^ violationsCache
+]
+
+{ #category : #accessing }
+RuLeafRule >> violationsCache: anObject [
+	violationsCache := anObject
 ]

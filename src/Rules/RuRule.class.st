@@ -19,7 +19,7 @@ Example
 				ruleBlock: [ :aModel | aModel allClasses select: [ :e | e numberOfLinesOfCode > 100 ] ]
 				label: 'Methods too long'
 				explanation: 'A class should not be too long'
-				remediationTime: 45)
+				remediationTime: 45 minutes)
 	
 Internal Representation and Key Implementation Points.
 ------------------
@@ -49,7 +49,7 @@ RuRule class >> ruleBlock: aBlock label: aString explanation: aMeaningString rem
 ]
 
 { #category : #accessing }
-RuRule >> computeResult [
+RuRule >> computeViolations [
 	^ [ self ruleBlock value: self model ]
 		on: Error
 		do: [ :e | RuUnaplicableRuleException signalForRule: self model: self model cachedError: e ]

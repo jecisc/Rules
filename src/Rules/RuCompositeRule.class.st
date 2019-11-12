@@ -92,3 +92,13 @@ RuCompositeRule >> technicalDebt [
 RuCompositeRule >> totalRemediationTime [
 	^ self children inject: Duration zero into: [ :sum :child | sum + child totalRemediationTime ]
 ]
+
+{ #category : #accessing }
+RuCompositeRule >> violations [
+	^ self children
+		inject: Set new
+		into: [ :set :each | 
+			set
+				addAll: each violations;
+				yourself ]
+]

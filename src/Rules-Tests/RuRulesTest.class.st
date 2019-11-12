@@ -37,7 +37,7 @@ RuRulesTest >> testRuleInfo [
 	self assert: rule workingHours equals: 8.
 	self assert: rule label equals: 'Long Containers'.
 	self assert: rule explanation equals: 'Containers should not be longer than 6 lines of code'.
-	self assert: rule remediationTimeInDays equals: 1 / 96
+	self assert: rule remediationTimeInDays equals: (1 / 96) asFloat
 ]
 
 { #category : #tests }
@@ -47,13 +47,13 @@ RuRulesTest >> testRuleResults [
 	n := 1.
 	self rulesToTest
 		do: [ :each | 
-			self assert: each computeResult size equals: (expectedResults at: n).
+			self assert: each computeViolations size equals: (expectedResults at: n).
 			n := n + 1 ]
 ]
 
 { #category : #tests }
 RuRulesTest >> testRuleResultsType [
-	self rulesToTest do: [ :each | self assert: each result isArray ]
+	self rulesToTest do: [ :each | self assert: each violations isArray ]
 ]
 
 { #category : #tests }
