@@ -27,6 +27,13 @@ Class {
 	#category : #'Rules-Model'
 }
 
+{ #category : #'instance creation' }
+RuRootRule class >> labelled: aString explanation: anotherString model: aModel [
+	^ (super labelled: aString explanation: anotherString)
+		model: aModel;
+		yourself
+]
+
 { #category : #initialization }
 RuRootRule >> initialize [
 	super initialize.
