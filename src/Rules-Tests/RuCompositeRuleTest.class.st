@@ -14,7 +14,7 @@ RuCompositeRuleTest >> actualClass [
 
 { #category : #helpers }
 RuCompositeRuleTest >> mutate: aRule [
-	aRule children anyOne ruleBlock: [ :aModel | aModel allContainers select: [ :each | each numberOfLinesOfCode > 100 ] ]
+	aRule children anyOne rule: [ :aModel | aModel allContainers select: [ :each | each numberOfLinesOfCode > 100 ] ]
 ]
 
 { #category : #helpers }
@@ -29,7 +29,7 @@ RuCompositeRuleTest >> testAddRule [
 	| rules newRule |
 	rules := rule children copy.
 	newRule := RuRule
-		ruleBlock: [ true ]
+		rule: [ true ]
 		label: 'test'
 		explanation: 'test 2'
 		remediationTime: 10 minutes.
@@ -41,7 +41,7 @@ RuCompositeRuleTest >> testAddRule [
 RuCompositeRuleTest >> testAddRuleSetParent [
 	| newRule |
 	newRule := RuRule
-		ruleBlock: [ true ]
+		rule: [ true ]
 		label: 'test'
 		explanation: 'test 2'
 		remediationTime: 10 minutes.
@@ -62,7 +62,7 @@ RuCompositeRuleTest >> testRemoveRule [
 	| rules newRule |
 	rules := rule children copy.
 	newRule := RuRule
-		ruleBlock: [ true ]
+		rule: [ true ]
 		label: 'test'
 		explanation: 'test 2'
 		remediationTime: 10 minutes.

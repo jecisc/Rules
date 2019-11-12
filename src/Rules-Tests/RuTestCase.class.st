@@ -80,7 +80,7 @@ RuTestCase >> query: aLabelString meaning: aMeaningString as: aBlock remediation
 	^ parent
 		addRule:
 			(RuRule
-				ruleBlock: aBlock
+				rule: aBlock
 				label: aLabelString
 				explanation: aMeaningString
 				remediationTime: time)

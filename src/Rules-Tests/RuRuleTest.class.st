@@ -14,7 +14,7 @@ RuRuleTest >> actualClass [
 
 { #category : #helpers }
 RuRuleTest >> mutate: aRule [
-	aRule ruleBlock: [ :aModel | aModel allContainers select: [ :each | each numberOfLinesOfCode > 100 ] ]
+	aRule rule: [ :aModel | aModel allContainers select: [ :each | each numberOfLinesOfCode > 100 ] ]
 ]
 
 { #category : #helpers }
@@ -22,7 +22,7 @@ RuRuleTest >> newInstance [
 	^ super newInstance
 		label: 'Long Containers';
 		explanation: 'Containers should not be longer than 10 lines of code';
-		ruleBlock: [ :aModel | aModel allContainers select: [ :each | each numberOfLinesOfCode > 6 ] ];
+		rule: [ :aModel | aModel allContainers select: [ :each | each numberOfLinesOfCode > 6 ] ];
 		remediationTime: 10 minutes;
 		yourself
 ]

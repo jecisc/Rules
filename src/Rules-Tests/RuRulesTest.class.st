@@ -66,9 +66,8 @@ RuRulesTest >> testRulesComputationErrorRaiseError [
 	"An error should not return a default value as -1"
 
 	self
-		should: [ 
-			self rulesToTest first copy
-				ruleBlock: [ Error signal ];
+		should: [ self rulesToTest first copy
+				rule: [ Error signal ];
 				totalRemediationTime ]
 		raise: RuUnaplicableRuleException
 ]

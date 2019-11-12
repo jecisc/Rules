@@ -33,35 +33,61 @@ Class {
 	#name : #RuRule,
 	#superclass : #RuLeafRule,
 	#instVars : [
-		'ruleBlock'
+		'rule'
 	],
 	#category : #'Rules-Model'
 }
 
 { #category : #'instance creation' }
-RuRule class >> ruleBlock: aBlock label: aString explanation: aMeaningString remediationTime: anInteger [
+RuRule class >> rule: aValuable label: aString explanation: aMeaningString remediationTime: anInteger [
 	^ self new
-		ruleBlock: aBlock;
+		rule: aValuable;
 		label: aString;
 		explanation: aMeaningString;
 		remediationTime: anInteger;
 		yourself
 ]
 
+{ #category : #'instance creation' }
+RuRule class >> ruleBlock: aBlock label: aString explanation: aMeaningString remediationTime: anInteger [
+	self
+		deprecated: 'Use #rule:label:explanation:remediationTime: instead'
+		transformWith:
+			'`@receiver ruleBlock: `@arg1 label: `@arg2 explanation: `@arg3 remediationTime: `@arg4'
+				-> '`@receiver rule: `@arg1 label: `@arg2 explanation: `@arg3 remediationTime: `@arg4'.
+	^ self
+		rule: aBlock
+		label: aString
+		explanation: aMeaningString
+		remediationTime: anInteger
+]
+
 { #category : #accessing }
 RuRule >> computeViolations [
-	^ [ self ruleBlock value: self model ]
+	^ [ self rule value: self model ]
 		on: Error
 		do: [ :e | RuUnaplicableRuleException signalForRule: self model: self model cachedError: e ]
 ]
 
 { #category : #accessing }
+RuRule >> rule [
+	^ rule
+]
+
+{ #category : #accessing }
+RuRule >> rule: aValuable [
+	rule := aValuable.
+	self resetCache
+]
+
+{ #category : #accessing }
 RuRule >> ruleBlock [
-	^ ruleBlock
+	self deprecated: 'Use #rule instead' transformWith: '`@receiver ruleBlock' -> '`@receiver rule'.
+	^ self rule
 ]
 
 { #category : #accessing }
 RuRule >> ruleBlock: anObject [
-	ruleBlock := anObject.
-	self resetCache
+	self deprecated: 'Use #rule: instead' transformWith: '`@receiver ruleBlock: `@arg' -> '`@receiver rule: `@arg'.
+	self rule: anObject
 ]
