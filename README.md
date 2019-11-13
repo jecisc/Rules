@@ -112,7 +112,7 @@ Violations:
 
 ## Documentation
 
-Documentation can be found [here]](documentation/Documentation.md).
+Documentation can be found [here](documentation/Documentation.md).
 
 ## Version management 
 
