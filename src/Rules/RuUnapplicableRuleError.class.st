@@ -29,7 +29,7 @@ Class {
 		'rule',
 		'model'
 	],
-	#category : #'Rules-Exceptions'
+	#category : #'Rules-Errors'
 }
 
 { #category : #signaling }
