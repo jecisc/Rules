@@ -40,7 +40,7 @@ RuQueryRule >> = anObject [
 RuQueryRule >> computeViolations [
 	^ [ self inputQuery runOn: self model ]
 		on: Error
-		do: [ :e | RuUnaplicableRuleException signalForRule: self model: self model cachedError: e ]
+		do: [ :e | RuUnapplicableRuleError signalForRule: self model: self model cachedError: e ]
 ]
 
 { #category : #accessing }

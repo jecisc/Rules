@@ -52,7 +52,7 @@ RuRule class >> rule: aValuable label: aString explanation: aMeaningString remed
 RuRule >> computeViolations [
 	^ [ self rule value: self model ]
 		on: Error
-		do: [ :e | RuUnaplicableRuleException signalForRule: self model: self model cachedError: e ]
+		do: [ :e | RuUnapplicableRuleError signalForRule: self model: self model cachedError: e ]
 ]
 
 { #category : #accessing }

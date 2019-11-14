@@ -22,7 +22,7 @@ Internal Representation and Key Implementation Points.
 
 "
 Class {
-	#name : #RuUnaplicableRuleException,
+	#name : #RuUnapplicableRuleError,
 	#superclass : #Error,
 	#instVars : [
 		'cachedError',
@@ -33,7 +33,7 @@ Class {
 }
 
 { #category : #signaling }
-RuUnaplicableRuleException class >> signalForRule: aRule model: aCollection cachedError: anError [
+RuUnapplicableRuleError class >> signalForRule: aRule model: aCollection cachedError: anError [
 	self new
 		rule: aRule;
 		model: aCollection;
@@ -42,28 +42,28 @@ RuUnaplicableRuleException class >> signalForRule: aRule model: aCollection cach
 ]
 
 { #category : #accessing }
-RuUnaplicableRuleException >> cachedError [
+RuUnapplicableRuleError >> cachedError [
 	^ cachedError
 ]
 
 { #category : #accessing }
-RuUnaplicableRuleException >> cachedError: anObject [
+RuUnapplicableRuleError >> cachedError: anObject [
 	cachedError := anObject
 ]
 
 { #category : #accessing }
-RuUnaplicableRuleException >> messageText [
+RuUnapplicableRuleError >> messageText [
 	^ 'The computation of the rule "{1}" failed on {2}.
 Error: 
 {3}' format: {rule label . model printString . cachedError signalerContext shortStack}
 ]
 
 { #category : #accessing }
-RuUnaplicableRuleException >> model: anObject [
+RuUnapplicableRuleError >> model: anObject [
 	model := anObject
 ]
 
 { #category : #accessing }
-RuUnaplicableRuleException >> rule: anObject [
+RuUnapplicableRuleError >> rule: anObject [
 	rule := anObject
 ]
