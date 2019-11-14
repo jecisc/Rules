@@ -98,7 +98,7 @@ Violations:
 
 ![UML of the project](uml.png?raw=true "UML of the project")
 
-This project is based on the (Composite design pattern)[https://en.wikipedia.org/wiki/Composite_pattern].
+This project is based on the [Composite design pattern](https://en.wikipedia.org/wiki/Composite_pattern).
 A `RuRootRule` is a composite containing instances of `RuLeafRule`.
 
 ## Rules
