@@ -6,7 +6,7 @@ Do not use me.
 Class {
 	#name : #RuUnaplicableRuleException,
 	#superclass : #RuUnapplicableRuleError,
-	#category : #'Rules-Exceptions'
+	#category : #'Rules-Errors'
 }
 
 { #category : #deprecation }
