@@ -1,26 +1,26 @@
 "
-A RuRootRuleTest is a test class for testing the behavior of RuRootRule
+A RuRulesManagerTest is a test class for testing the behavior of RuRulesManager
 "
 Class {
-	#name : #RuRootRuleTest,
+	#name : #RuRulesManagerTest,
 	#superclass : #RuCompositeRuleTest,
 	#category : #'Rules-Tests'
 }
 
 { #category : #helpers }
-RuRootRuleTest >> actualClass [
+RuRulesManagerTest >> actualClass [
 	^ RuRulesManager
 ]
 
 { #category : #helpers }
-RuRootRuleTest >> newInstance [
+RuRulesManagerTest >> newInstance [
 	^ super newInstance
 		model: self mockModel;
 		yourself
 ]
 
 { #category : #running }
-RuRootRuleTest >> setUp [
+RuRulesManagerTest >> setUp [
 	super setUp.
 	rootRule := rule
 ]
