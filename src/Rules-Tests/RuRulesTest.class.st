@@ -69,7 +69,7 @@ RuRulesTest >> testRulesComputationErrorRaiseError [
 		should: [ self rulesToTest first copy
 				rule: [ Error signal ];
 				totalRemediationTime ]
-		raise: RuUnaplicableRuleException
+		raise: RuUnapplicableRuleError
 ]
 
 { #category : #tests }
