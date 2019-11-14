@@ -9,7 +9,7 @@ Class {
 
 { #category : #helpers }
 RuRootRuleTest >> actualClass [
-	^ RuRootRule
+	^ RuRulesManager
 ]
 
 { #category : #helpers }

@@ -88,5 +88,5 @@ RuTestCase >> query: aLabelString meaning: aMeaningString as: aBlock remediation
 
 { #category : #helpers }
 RuTestCase >> rootRule [
-	^ RuRootRule labelled: 'Root rule' explanation: 'Test' model: self mockModel
+	^ RuRulesManager labelled: 'Root rule' explanation: 'Test' model: self mockModel
 ]
