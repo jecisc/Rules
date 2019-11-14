@@ -7,7 +7,7 @@ I am a simple composite rule just holding a model. I should be the root the user
 Example
 -------------------
 
-	RuRootRule on: aModel	
+	RuRulesManager on: aModel	
  
 Internal Representation and Key Implementation Points.
 --------------------
