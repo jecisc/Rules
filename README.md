@@ -47,7 +47,7 @@ rulesManager := RuRootRule
 	model: model.
 ```
 
-Then we can add our rules.
+Then we can add our rules. A rule contains mainly a block that takes a model (the "universe") as parameter and returns the collection of entities, within this model, that violate the rule.
 
 ```Smalltalk
 rulesManager
