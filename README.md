@@ -1,6 +1,6 @@
 # Rules
 
-Rules provides objects to represent rulesto not violate on a model and allows one to run them on a model to get the entities violation them and to get the technical debt of the project.
+Rules is a small model of rules that a model should not violate. It is able to compute the technical debt for a set of violations.
 
 [![Build Status](https://travis-ci.org/jecisc/Rules.svg?branch=master)](https://travis-ci.org/jecisc/Rules) [![Coverage Status](https://coveralls.io/repos/github/jecisc/Rules/badge.svg)](https://coveralls.io/github/jecisc/Rules)
 
