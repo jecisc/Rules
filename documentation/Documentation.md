@@ -20,7 +20,7 @@ This project provides objects to represent rulesto not violate on a model and al
 
 To create a batch of rules to run on a model you first need to create a `RuRulesManager`.
 
-A root rule is a composite rule that will know the model which the rules should apply and that contains all the rules. It can be considered as the rules manager.
+A rule manager is a composite rule that will know the model which the rules should apply and that contains all the rules.
 
 ```Smalltalk
 model := #(2 4 6 8 11 14).
