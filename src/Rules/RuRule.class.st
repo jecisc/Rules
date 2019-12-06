@@ -13,7 +13,7 @@ Example
 ------------------
 	""Example on a model from Moose""
 
-	(RuRootRule on: MooseModel new)
+	(RuRulesManager on: MooseModel new)
 		addRule:
 			(RuRule
 				ruleBlock: [ :aModel | aModel allClasses select: [ :e | e numberOfLinesOfCode > 100 ] ]

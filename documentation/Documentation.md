@@ -9,7 +9,7 @@ This project provides objects to represent rulesto not violate on a model and al
 - [Design](#design)
 - [Rules](#rules)
   * [RuCompositeRule](#rucompositerule)
-  * [RuRootRule](#rurootrule)
+  * [RuRulesManager](#rurulesmanager)
   * [RuRule](#rurule)
   * [RuQueryRule](#ruqueryrule)
 
@@ -18,14 +18,14 @@ This project provides objects to represent rulesto not violate on a model and al
 
 ## Quick start
 
-To create a batch of rules to run on a model you first need to create a `RuRootRule`.
+To create a batch of rules to run on a model you first need to create a `RuRulesManager`.
 
-A root rule is a composite rule that will know the model which the rules should apply and that contains all the rules. It can be considered as the rules manager.
+A rule manager is a composite rule that will know the model which the rules should apply and that contains all the rules.
 
 ```Smalltalk
 model := #(2 4 6 8 11 14).
 
-rulesManager := RuRootRule
+rulesManager := RuRulesManager
 	labelled: 'My number collection rules'
 	explanation: 'This composite rule contains all the constraits my collection of numbers should respect.'
 	model: model.
