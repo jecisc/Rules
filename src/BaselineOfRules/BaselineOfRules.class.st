@@ -46,3 +46,8 @@ BaselineOfRules >> mocketry: spec [
 				loads: #('Core');
 				repository: 'github://dionisiydk/Mocketry:v6.0.x' ]
 ]
+
+{ #category : #accessing }
+BaselineOfRules >> projectClass [
+	^ MetacelloCypressBaselineProject
+]
