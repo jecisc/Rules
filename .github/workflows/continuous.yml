@@ -27,4 +27,9 @@ jobs:
       - run: smalltalkci -s ${{ matrix.smalltalk }}
         shell: bash
         timeout-minutes: 15
+      - name: Test Summary
+        uses: test-summary/action@v1
+        with:
+          paths: "test/results/**/TEST-*.xml"
+        if: always()
 
